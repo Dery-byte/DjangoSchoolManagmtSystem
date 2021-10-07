@@ -1,0 +1,243 @@
+{% load  static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <title>{% block page_title %}{% endblock page_title %}</title>
+    <!-- Favicon-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+ <!-- Bootstrap Core Css 
+ <link href="{% static 'plugins2/bootstrap/css/bootstrap.css' %}" rel="stylesheet">-->
+ <!-- Waves Effect Css -->
+ <!-- Animation Css -->
+  <!---THIS WHAT I COPIED FROM-->
+  
+<link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
+<link href="{% static 'css2/style.css' %}" rel="stylesheet">
+<link href="{% static 'css2/themes/all-themes.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'dists/css/adminlte.min.css' %}">
+
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
+  <!--THE END OF WHAT I COPIED-->
+
+
+    <link rel="icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Core Css -->
+    <link href="{% static 'plugins2/bootstrap/css/bootstrap.css' %}" rel="stylesheet" />
+
+    <!-- Waves Effect Css -->
+    <link href="{% static 'plugins2/node-waves/waves.css' %}" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="{% static 'plugins2/animate-css/animate.css' %}" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="{% static 'plugins2/morrisjs/morris.css' %}" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="{% static 'css2/style.css' %}" rel="stylesheet" />
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="{% static 'css2/themes/all-themes.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins2/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
+ <!--dialog Show css plugin-->
+ <link href="{% static 'plugins2/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
+    {% block custom_css %}{% endblock custom_css %}
+
+</head>
+
+
+<!--Top Navigation-->
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+   
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="{{ admin_home }}">Student Management System</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                   
+                    <!-- #END# Call Search -->
+                    <!-- Notifications -->
+                  
+                    <!-- #END# Notifications -->
+                </ul>
+            </div>
+
+
+
+
+
+        </div>
+    </nav>
+
+    <section>
+
+        {% include 'hod_template/sidebarL_template.html' with user=user id=id %}
+        <!-- INCLUDE THE LEFT SIDEBAR HERE-->
+
+        {% include 'hod_template/sidebarR_template.html' %}
+        <!--INCLUDE THE RIGHT SIDEBAR HERE-->
+    </section>
+
+
+    <section class="content">
+        {% block main_content %} {% endblock main_content %}
+        <!--INCLUDE THE HOME_CONTENT HERE-->
+    </section>
+ <!--The chart JS-->
+    <script src="{% static 'plugins3/chart.js/Chart.bundle.js' %}"></script>
+
+
+    
+
+
+    <!-- Jquery Core Js -->
+    <script src="{% static 'js/pages/index.js' %}"></script>
+    <script src="{% static 'plugins2/jquery/jquery.min.js' %}"></script>
+
+
+    <!-- Bootstrap Core Js -->
+    <script src="{% static 'plugins2/bootstrap/js/bootstrap.js' %}"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="{% static 'plugins2/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'plugins2/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'plugins2/node-waves/waves.js' %}"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="{% static 'plugins2/jquery-countto/jquery.countTo.js' %}"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="{% static 'plugins2/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'plugins2/morrisjs/morris.js' %}"></script>
+
+    <!-- ChartJs -->
+    <script src="{% static 'plugins2/chartjs/Chart.bundle.js' %}"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="{% static 'plugins2/flot-charts/jquery.flot.js' %}"></script>
+    <script src="{% static 'plugins2/flot-charts/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'plugins2/flot-charts/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'plugins2/flot-charts/jquery.flot.categories.js' %}"></script>
+    <script src="{% static 'plugins2/flot-charts/jquery.flot.time.js' %}"></script>
+
+    <!-- Sparkline Chart Plugin Js 
+    <script src="{% static 'plugins2/jquery-sparkline/jquery.sparkline.js' %}"></script>-->
+
+
+    <script src="{% static 'js2/admin.js' %}"></script>
+    <!-- Custom Js
+    <script src=" {% static 'js2/pages/index.js' %}"></script>-->
+
+    <!--toolltip and popovers-->
+    <script src=" {% static 'js1/pages/tooltips-popovers.js' %}"></script>
+    <script src=" {% static 'js1/pages/ui/notifications.js' %}"></script>
+    <script src=" {% static 'js1/pages/ui/animations.js' %}"></script>
+    <script src=" {% static 'js1/pages/ui/dialogs.js' %}"></script>
+
+    <script src="{% static 'js2/pages/forms/basic-form-elements.js' %"></script>    
+    <script src="{% static 'plugins3/momentjs/moment.js' %"></script>
+
+
+    <!-- Demo Js -->
+    <script src=" {% static 'js1/demo.js' %}"></script>
+
+
+    <!--Dialog Javasscript plugins-->
+    <script src="{% static 'plugins2/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js2/pages/ui/dialogs.js' %}"></script>
+    <script src="{% static 'plugins2/bootstrap-notify/bootstrap-notify.js' %}"></script>
+
+
+
+        <!--COPIED AND PASTED-->
+
+ 
+
+
+
+   
+
+
+
+        {% block custom_js %} 
+        <script src="{% static 'js2/admin.js' %}"></script>
+       <script src="{% static 'js2/pages/index.js' %}"></script>
+       
+       <!-- Demo Js -->
+       <script src="{% static 'js1/demo.js' %}"></script>
+       <!-- AdminLTE App -->
+       <script src="{% static 'dist3/js/adminlte.js' %}"></script>
+       <script src="{% static 'dist3/js/demo.js' %}"></script>
+       <!--End of copied js files-->
+       <!--Dialog Javasscript plugins-->
+       <script src="{% static 'plugins2/sweetalert/sweetalert.min.js' %}"></script>
+       <script src="{% static 'js2/pages/ui/dialogs.js' %}"></script>
+       <script src="{% static 'plugins2/bootstrap-notify/bootstrap-notify.js' %}"></script>
+       
+       <script src="{% static 'plugins2/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+       
+       <!-- Waves Effect Plugin Js -->
+       <script src="{% static 'plugins2/chartjs/Chart.bundle.js' %}"></script>
+       <script src="{% static 'js1/pages/charts/chartjs.js' %}"></script>
+       {% endblock custom_js %}
+      
+
+    
+</body>
+
+</html>

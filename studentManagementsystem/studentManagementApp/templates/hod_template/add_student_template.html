@@ -1,0 +1,185 @@
+{% extends 'hod_template/base_template.html' %} {% block page_title %} Add Student {% endblock page_title %}
+{% block main_content %}
+
+
+
+
+
+
+
+
+
+<div class="card">
+  <div class="header">
+    <h2>
+      Add Student
+
+    </h2>
+  </div>
+  <div class="body">
+
+    {% if messages %} {% for message in messages %} {% if message.tags == 'error' %}
+
+
+    <!--Notice test sample code for the dialog box-->
+    <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+    <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="false" data-has-cancel-button="true"
+      data-has-confirm-button="false" data-allow-outside-click="false" data-has-done-function="" data-animation="pop"
+      data-timer="null" style="display: block; margin-top: -148px; ">
+      <div class="sa-icon sa-error" style="display: none;">
+        <span class="sa-x-mark">
+
+        </span>
+      </div>
+      <div class="sa-icon sa-warning" style="display: block;">
+        <span class="sa-body"></span>
+        <span class="sa-dot"></span>
+      </div>
+      <div class="sa-icon sa-info" style="display: none;"></div>
+      <div class="sa-icon sa-success animate" style="display: none;">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+
+
+      </div>
+      <div class="sa-icon sa-custom" style="display: none;"></div>
+      <h2
+        style="display: block; text-decoration: underline red; color:red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        {{ message }}!
+      </h2>
+      <div class="sa-button-container">
+        <div class="sa-confirm-button-container">
+          <button class="confirm okayValue" tabindex="1" style="display: block; opacity: 1; ">OK</button>
+        </div>
+      </div>
+    </div> {% endif %}
+
+
+
+    {% if message.tags == 'success' %}
+    <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+    <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="" data-has-cancel-button="false"
+      data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false"
+      data-animation="pop" data-timer="null" style="display: block; margin-top: -148px;">
+      <div class="sa-icon sa-error" style="display: none;">
+        <span class="sa-x-mark">
+          <span class="sa-line sa-left"></span>
+          <span class="sa-line sa-right"></span>
+        </span>
+      </div>
+      <div class="sa-icon sa-warning" style="display: none;">
+        <span class="sa-body"></span>
+        <span class="sa-dot"></span>
+      </div>
+      <div class="sa-icon sa-info" style="display: none;"></div>
+      <div class="sa-icon sa-success animate" style="display: block;">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+
+        <div class="sa-placeholder"></div>
+        <div class="sa-fix"></div>
+      </div>
+      <div class="sa-icon sa-custom" style="display: none;"></div>
+
+      <h2 style="display: block; text-decoration: underline; color:green;">
+        {{ message }}!
+      </h2>
+
+      <div class="sa-confirm-button-container">
+        <button class="confirm okayValue" tabindex="1" style="display: inline-block; ">OK</button>
+
+      </div>
+    </div> {% endif %} {% endfor %} {% endif %}
+
+    {% url 'add_student_save' as action_path %}
+    {% include 'hod_template/form_template.html' with messages=messages action_path=action_path form=form  button_text="Add Student" %}
+  </div>
+  <!-- /.card -->
+
+
+
+
+</div>
+
+<!-- /.content -->
+{% endblock main_content %} {% block custom_js %}
+<script>
+  $(document).ready(function () {
+    $("#id_email").keyup(function () {
+      var email = $(this).val();
+
+      if (email != "") {
+        $.ajax({
+            url: "{% url 'check_email_exist' %}",
+            type: "POST",
+            data: {
+              email: email
+            }
+          })
+          .done(function (response) {
+            console.log(response);
+            if (response == "True") {
+              $(".email_error").remove();
+              $("<span class='email_error' style='padding: 5px;color: red;font-weight: bold;'>Email Not Available</span>")
+                .insertAfter("#id_email");
+            } else {
+              $(".email_error").remove();
+              $("<span class='email_error' style='padding: 5px;color: green;font-weight: bold;'>Email Available</span>")
+                .insertAfter("#id_email");
+            }
+          })
+          .fail(function () {
+            console.log("failed");
+          })
+      } else {
+        $(".email_error").remove();
+      }
+
+    });
+
+    $("#id_username").keyup(function () {
+      var username = $(this).val();
+
+      if (username != "") {
+        $.ajax({
+            url: "{% url 'check_username_exist' %}",
+            type: 'POST',
+            data: {
+              username: username
+            }
+          })
+          .done(function (response) {
+            console.log(response);
+            if (response == "True") {
+              $(".username_error").remove();
+              $("<span class='username_error' style='padding: 5px;color: red;font-weight: bold;'>Username Not Available</span>")
+                .insertAfter("#id_username");
+            } else {
+              $(".username_error").remove();
+              $("<span class='username_error' style='padding: 5px;color: green;font-weight: bold;'>Username Available</span>")
+                .insertAfter("#id_username");
+            }
+          })
+          .fail(function () {
+            console.log("failed");
+          })
+      } else {
+        $(".username_error").remove();
+      }
+
+    });
+
+  });
+
+
+
+
+  var opass = document.querySelector(".opass");
+  var hiddenM = document.querySelector(".hiddenM")
+  var okayValue = document.querySelector(".okayValue");
+  okayValue.addEventListener('click', function () {
+    hiddenM.style.display = "none";
+    opass.style.display = "none";
+
+  });
+</script> {% endblock custom_js %}

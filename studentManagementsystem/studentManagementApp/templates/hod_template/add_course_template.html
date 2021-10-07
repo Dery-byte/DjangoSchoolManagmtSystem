@@ -1,0 +1,110 @@
+{% extends 'hod_template/base_template.html' %} {% block page_title %} Add
+Course {% endblock page_title %} {% block main_content %}
+
+<div class="card">
+  <div class="header">
+    <h2>Add Course</h2>
+  </div>
+  <div class="body">
+    <form role="form" action="/add_course_save/" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="form-label">Course Name</label>
+
+        <div class="form-line">
+          <input type="text" id="course" class="form-control" name="course" required />
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary m-t-15 waves-effect btn-block">
+        Add Course
+      </button>
+    </form>
+    {% if messages %} {% for message in messages %} {% if message.tags == 'error' %}
+
+
+    <!--Notice test sample code for the dialog box-->
+    <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+    <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="false" data-has-cancel-button="true"
+      data-has-confirm-button="false" data-allow-outside-click="false" data-has-done-function="" data-animation="pop"
+      data-timer="null" style="display: block; margin-top: -148px; ">
+      <div class="sa-icon sa-error" style="display: none;">
+        <span class="sa-x-mark">
+
+        </span>
+      </div>
+      <div class="sa-icon sa-warning" style="display: block;">
+        <span class="sa-body"></span>
+        <span class="sa-dot"></span>
+      </div>
+      <div class="sa-icon sa-info" style="display: none;"></div>
+      <div class="sa-icon sa-success animate" style="display: none;">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+
+
+      </div>
+      <div class="sa-icon sa-custom" style="display: none;"></div>
+      <h2
+        style="display: block; text-decoration: underline red; color:red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        {{ message }}!
+      </h2>
+      <div class="sa-button-container">
+        <div class="sa-confirm-button-container">
+          <button class="confirm okayValue" tabindex="1" style="display: block; opacity: 1; ">OK</button>
+        </div>
+      </div>
+    </div> {% endif %}
+
+
+
+    {% if message.tags == 'success' %}
+    <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+    <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="" data-has-cancel-button="false"
+      data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false"
+      data-animation="pop" data-timer="null" style="display: block; margin-top: -148px;">
+      <div class="sa-icon sa-error" style="display: none;">
+        <span class="sa-x-mark">
+          <span class="sa-line sa-left"></span>
+          <span class="sa-line sa-right"></span>
+        </span>
+      </div>
+      <div class="sa-icon sa-warning" style="display: none;">
+        <span class="sa-body"></span>
+        <span class="sa-dot"></span>
+      </div>
+      <div class="sa-icon sa-info" style="display: none;"></div>
+      <div class="sa-icon sa-success animate" style="display: block;">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+
+        <div class="sa-placeholder"></div>
+        <div class="sa-fix"></div>
+      </div>
+      <div class="sa-icon sa-custom" style="display: none;"></div>
+
+      <h2 style="display: block; text-decoration: underline; color:green;">
+        {{ message }}!
+      </h2>
+
+      <div class="sa-confirm-button-container">
+        <button class="confirm okayValue" tabindex="1" style="display: inline-block; ">OK</button>
+
+      </div>
+    </div> {% endif %} {% endfor %} {% endif %}
+  </div>
+</div>
+
+{% block custom_js %}
+<script>
+  var opass = document.querySelector('.opass');
+  var hiddenM = document.querySelector('.hiddenM');
+  var okayValue = document.querySelector('.okayValue');
+  okayValue.addEventListener('click', function () {
+    hiddenM.style.display = 'none';
+    opass.style.display = 'none';
+  });
+</script>
+
+{% endblock custom_js %} 
+{% endblock main_content %}

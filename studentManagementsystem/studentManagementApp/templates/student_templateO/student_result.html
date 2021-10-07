@@ -1,0 +1,107 @@
+{% extends 'student_templateO/base_template.html' %}
+{% block main_content %}
+    <!-- Main content -->
+
+    <section class="content">
+            <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Results</h3>
+        </div>
+        <!-- /.card-header -->
+       
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Assignment Marks</th>
+              <th>Exams Mark</th>
+              <th>Total</th>
+              <th>Grade</th>
+              <th>Status</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                    {% for row in studentresult %}
+                    <tr>
+                        <td>{{ row.subject_id.subject_name }}</td>
+                        <td>{{ row.subject_assignment_marks }}</td>
+                        <td>{{ row.subject_exam_marks }}</td>
+                        <td>{{row.subject_exam_marks|add:row.subject_assignment_marks}}</td>
+                        <td>
+                            {% if row.subject_exam_marks|add:row.subject_assignment_marks >= 80 %}
+                            <span class="btn btn-block btn-secondary btn-sm">A1</span>
+                            {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 70 %}
+                            <span class="btn btn-block btn-secondary btn-sm">B2</span>
+                            {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 69 %}
+                             <span class="btn btn-block btn-secondary btn-sm">B3</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 60 %}
+                             <span class="btn btn-block btn-secondary btn-sm">C4</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 55 %}
+                             <span class="btn btn-block btn-secondary btn-sm">C5</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 50 %}
+                             <span class="btn btn-block btn-secondary btn-sm">C6</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 45 %}
+                             <span class="btn btn-block btn-secondary btn-sm">D7</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 40 %}
+                             <span class="btn btn-block btn-secondary btn-sm">E8</span>
+                             {% elif row.subject_exam_marks|add:row.subject_assignment_marks >= 0 %}
+                             <span class="btn btn-block btn-secondary btn-sm">F9</span>
+                             
+                            {% endif %}
+                        </td>
+                        <td>
+                          {% if row.subject_exam_marks|add:row.subject_assignment_marks >= 70 %}
+                            <span class="btn btn-block btn-success btn-sm">Pass</span>
+                            {% else %}
+                             <span class="btn btn-block btn-danger btn-sm">Fail</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+               {% endfor %}
+            </tbody>
+            </table>
+            
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</section>
+
+
+    <!-- /.content -->
+{% endblock main_content %}
+{% block custom_js %} 
+
+<script>
+$(document).ready(function () {
+
+$(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["excel", "pdf", "print"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+})
+</script>
+{% endblock custom_js %}

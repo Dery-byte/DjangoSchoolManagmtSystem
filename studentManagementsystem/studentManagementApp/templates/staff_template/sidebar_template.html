@@ -1,0 +1,73 @@
+{% load static %}
+<aside class="left-sidebar" data-navbarbg="skin5" style="background-color: black;">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30 in">
+                <li class="sidebar-item ">
+                    {% url 'staff_home' as staff_home %}
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link " href="{{ staff_home }}"
+                        aria-expanded="false"><i class="mdi mdi-view-dashboard"></i>
+                        <span class="hide-menu">Home</span></a></li>
+                <li class="sidebar-item">
+                    {% url 'staff_take_attendance' as staff_take_attendance %}
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ staff_take_attendance }}"
+                        aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Take
+                            Attendance</span></a></li>
+                <li class="sidebar-item">
+                    {% url 'staff_update_attendance' as staff_update_attendance %}
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ staff_update_attendance }}"
+                        aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Update
+                            Attendance</span></a></li>
+                <li class="sidebar-item">
+                    {% url 'staff_apply_leave' as staff_apply_leave %}
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ staff_apply_leave }}"
+                        aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Apply for
+                            Leave</span></a></li>
+
+                <li class="sidebar-item">
+                    {% url 'staff_feedback' as staff_feedback %}
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ staff_feedback }}"
+                        aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">
+                            Chat HOD</span></a></li>
+
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
+                            class="hide-menu">Results</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item">
+                            {% url 'staff_add_result' as staff_add_result %}
+                            <a href="{{ staff_add_result }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-outline"></i><span class="hide-menu"> Add Results </span></a>
+                        </li>
+                        <li class=" selected">
+                            {% url 'edit_student_result' as edit_student_result %}
+                            <a href="{{ edit_student_result }}" class="sidebar-link  active "><i
+                                    class="mdi mdi-note-plus"></i><span class="hide-menu">
+                                    Edit Results </span></a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    {% url 'staff_all_notification' as staff_all_notification %}
+
+                    <a class="sidebar-link waves-effect waves-dark" href="{{ staff_all_notification }}"
+                        aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Notifications
+                        </span></a>
+                </li>
+                <li class="sidebar-item">
+                    {% url 'start_live_classroom' as start_live_classroom %}
+
+                    <a class="sidebar-link waves-effect waves-dark" href="{{ start_live_classroom }}"
+                        aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Start Live Class
+                        </span></a>
+                </li>
+                
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

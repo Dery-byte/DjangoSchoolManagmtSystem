@@ -1,0 +1,52 @@
+{% extends 'hod_template/base_template.html' %} {% block page_title %} Manage Subject {% endblock page_title %}
+{% block main_content %}
+
+
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card">
+    <div class="header">
+      <h2>
+        Manage Subject
+      </h2>
+
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Subject Name</th>
+            <th>Course Name</th>
+            <th>Course ID</th>
+            <th>Staff Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for subject in subjects %}
+          <tr>
+            <td>{{ subject.id }}</td>
+            <td>{{ subject.subject_name }}</td>
+            <td>{{ subject.course_id.course_name }}</td>
+            <td>{{ subject.course_id.id }}</td>
+            <td>{{ subject.staff_id.first_name }} {{ subject.staff_id.last_name }}</td>
+            <td>
+              <a href="/edit_subject/{{ subject.id }}" class="btn btn-success">Edit</a>
+              <a href="/delete_subject/{{ subject.id }}" class="btn btn-danger">Delete</a>
+
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+{% endblock main_content %}
+{% block custom_js %} 
+{% endblock custom_js %}
