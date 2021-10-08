@@ -20,17 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'so*rai_2(lk7t(yh%de+_kp_c%*r_b9wkga%gyo5tl9_8_r!xx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #HEROKU LIVE PROJECT LINK
-ALLOWED_HOSTS = ["managemyschool.herokuapp.com"]
+ALLOWED_HOSTS = ["studentsmanagesystem.herokuapp.com", "127.0.0.1"]
 #ALLOWED_HOSTS = ["*"]
 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
-STATIC_URL="/static/"
-STATIC_ROOT=os.path.join(BASE_DIR,"static")
+
 
 # Application definition
 
@@ -88,8 +87,21 @@ WSGI_APPLICATION = 'student_management_system.wsgi.application'
 DATABASES = {
     'default': {
         #=====Enable Only Making Project Live on Heroku====
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       #'ENGINE': 'django.db.backends.sqlite3',
+       #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+## Postgresql configuration
+
+
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'd9j2rspo9cc67u',
+       'HOST':'ec2-54-147-76-191.compute-1.amazonaws.com',
+       'PORT':5432,
+       'USER':'zikttbteifjblg',
+       'PASSWORD':'8dd4ac37a2957442bb1336d79053dc9ab2b4196a4ec4a6f7f7b468ad8f744cd7'
+
+
+
        #'ENGINE':'django.db.backends.mysql',
        #'NAME':'testing',
        #'USER':'root',
@@ -162,7 +174,10 @@ EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
 # import dj_database_url
 # prod_db=dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(prod_db)
+STATIC_URL="/static/"
+STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 
