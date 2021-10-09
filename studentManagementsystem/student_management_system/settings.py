@@ -87,18 +87,18 @@ WSGI_APPLICATION = 'student_management_system.wsgi.application'
 DATABASES = {
     'default': {
         #=====Enable Only Making Project Live on Heroku====
-       #'ENGINE': 'django.db.backends.sqlite3',
-       #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
 ## Postgresql configuration
 
 
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'd9j2rspo9cc67u',
-       'HOST':'ec2-54-147-76-191.compute-1.amazonaws.com',
-       'PORT':5432,
-       'USER':'zikttbteifjblg',
-       'PASSWORD':'8dd4ac37a2957442bb1336d79053dc9ab2b4196a4ec4a6f7f7b468ad8f744cd7'
+       #'ENGINE': 'django.db.backends.postgresql',
+       #'NAME': 'd9j2rspo9cc67u',
+       #'HOST':'ec2-54-147-76-191.compute-1.amazonaws.com',
+       #'PORT':5432,
+       #'USER':'zikttbteifjblg',
+       #'PASSWORD':'8dd4ac37a2957442bb1336d79053dc9ab2b4196a4ec4a6f7f7b468ad8f744cd7'
 
 
 
