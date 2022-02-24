@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <title>{% block page_title %}{% endblock page_title %}</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    
+
+
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+
+
+
+ <!-- Bootstrap Core Css 
+ <link href="{% static 'plugins2/bootstrap/css/bootstrap.css' %}" rel="stylesheet">-->
+ <!-- Waves Effect Css -->
+ <!-- Animation Css -->
+ <link href="{% static 'plugins2/animate-css/animate.css' %}" rel="stylesheet" />
+ <link href="{% static 'css/style.css' %}" rel="stylesheet">
+ <link href="{% static 'css/themes/all-themes.css' %}" rel="stylesheet" />
+  <!---THIS WHAT I COPIED FROM-->
+<link rel="stylesheet" href="{% static 'plugins3/fontawesome-free/css/all.min.css' %}">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'dist3/css/adminlte.min.css' %}">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
+  <!--THE END OF WHAT I COPIED-->
+
+
+
+  {% block custom_css %}{% endblock custom_css %}
+  
+</head>
+
+
+
+<!--Top Navigation-->
+
+<body class="theme-red">
+
+
+  <!-- Page Loader -->
+  <div class="page-loader-wrapper">
+      <div class="loader">
+          <div class="preloader">
+              <div class="spinner-layer pl-red">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+          </div>
+          <p>Please wait...</p>
+      </div>
+  </div>
+  <!-- #END# Page Loader -->
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+  <!-- #END# Overlay For Sidebars -->
+  <!-- Search Bar -->
+  <div class="search-bar">
+      <div class="search-icon">
+          <i class="material-icons">search</i>
+      </div>
+      <input type="text" placeholder="START TYPING..." />
+      <div class="close-search">
+          <i class="material-icons">close</i>
+      </div>
+  </div>
+  <!-- #END# Search Bar -->
+  <!-- Top Bar -->
+  <nav class="navbar">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#navbar-collapse" aria-expanded="false"></a>
+              <a href="javascript:void(0);" class="bars"></a>
+              <a class="navbar-brand" href="{{ admin_home }}">Student Management System</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <!-- Call Search -->
+                  <li>
+                      <a href="javascript:void(0);" class="js-search" data-close="true"><i
+                              class="material-icons">search</i></a>
+                  </li>
+                  <!-- #END# Call Search -->
+                  <!-- Notifications -->
+                  <li class="dropdown">
+                      <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                          <i class="material-icons">notifications</i>
+                          <span class="label-count">7</span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="header">NOTIFICATIONS</li>
+                          <li class="body">
+                              <ul class="menu">
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-light-green">
+                                              <i class="material-icons">person_add</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4>12 new members joined</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 14 mins
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-cyan">
+                                              <i class="material-icons">add_shopping_cart</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4>4 sales made</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 22 mins
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-red">
+                                              <i class="material-icons">delete_forever</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4><b>Nancy Doe</b> deleted account</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 3 hours
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-orange">
+                                              <i class="material-icons">mode_edit</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4><b>Nancy</b> changed name</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 2 hours
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-blue-grey">
+                                              <i class="material-icons">comment</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4><b>John</b> commented your post</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 4 hours
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-light-green">
+                                              <i class="material-icons">cached</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4><b>John</b> updated status</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> 3 hours
+                                                  ago
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:void(0);">
+                                          <div class="icon-circle bg-purple">
+                                              <i class="material-icons">settings</i>
+                                          </div>
+                                          <div class="menu-info">
+                                              <h4>Settings updated</h4>
+                                              <p>
+                                                  <i class="material-icons">access_time</i> Yesterday
+                                              </p>
+                                          </div>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li class="footer">
+                              <a href="javascript:void(0);">View All Notifications</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <!-- #END# Notifications -->
+              </ul>
+          </div>
+
+
+
+
+
+      </div>
+  </nav>
+
+  <div>
+
+      {% include 'hod_template2/sidebarL_template.html' with user=user id=id %}
+      <!-- INCLUDE THE LEFT SIDEBAR HERE-->
+
+      {% include 'hod_template2/sidebarR_template.html' %}
+      <!--INCLUDE THE RIGHT SIDEBAR HERE-->
+  </div>
+
+
+  <section class="content">
+      {% block main_content %} {% endblock main_content %}
+      <!--INCLUDE THE HOME_CONTENT HERE-->
+  </section>
+
+  
+
+
+  <!-- Jquery CountTo Plugin Js -->
+
+  <!-- Custom Js -->
+  <script src="{% static 'js/admin.js' %}"></script>
+  <script src="{% static 'js/pages/index.js' %}"></script>
+  <script src="{% static 'plugins2/chartjs/Chart.bundle.js' %}"></script>
+
+  <!-- Demo Js -->
+  <script src="{% static 'js/demo.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static 'dist3/js/adminlte.js' %}"></script>
+  <script src="{% static 'dist3/js/demo.js' %}"></script>
+  <!--End of copied js files-->
+    <!--Dialog Javasscript plugins-->
+    <script src="{% static 'plugins2/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/pages/ui/dialogs.js' %}"></script>
+    <script src="{% static 'plugins2/bootstrap-notify/bootstrap-notify.js' %}"></script>
+
+
+    <script src="{% static 'plugins2/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="{% static 'plugins2/bootstrap/js/bootstrap.js' %}"></script>
+
+
+    <!-- Select Plugin Js -->
+    <script src="{% static 'plugins2/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'plugins2/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'plugins2/node-waves/waves.js' %}"></script>
+    <script src="{% static 'js/admin.js' %}"></script>
+
+
+
+
+
+
+    {% block custom_js %} {% endblock custom_js %} 
+
+</body>
+
+</html>

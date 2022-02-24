@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
+    <title>{% block page_title %} {% endblock page_title %}</title>
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/libs/flot/css/float-chart.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'dists/css/style.min.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--Matrix Admin CSS-->
+    <link rel="stylesheet" href="{% static 'cssMatrixAdmin/uniform.css' %}" />
+    <link rel="stylesheet" href="{% static 'cssMatrixAdmin/select2.css' %}" />
+ 
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+
+    {% block custom_css %}{% endblock custom_css %}
+
+</head>
+
+<body>
+
+
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    {% include 'staff_template/navbar_template.html' with user=user id=id %}
+
+
+    {% include 'staff_template/sidebar_template.html' %}
+    <div class="page-wrapper">
+        
+
+        {% block main_content %}
+
+        {% endblock main_content %}
+    </div>
+    {% include 'staff_template/footer_template.html' %}
+    </div>
+
+
+
+    <!--This jquery is important to fect student and so that you can add results and edit them as well the immediate below does that actually-->
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+    <!--End of above script-->
+    <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+
+
+    <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'assets/libs/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/sparkline/sparkline.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'dists/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'dists/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dists/js/custom.min.js' %}"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="{% static 'dists/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="{% static 'assets/libs/flot/excanvas.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
+    <script src="{% static 'assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'dists/js/pages/chart/chart-page-init.js' %}"></script>
+</body>
+
+<script src="{% static 'js2/admin.js' %}"></script>
+ <script src="{% static 'js2/pages/index.js' %}"></script>
+
+ <!-- Demo Js -->
+ <script src="{% static 'js1/demo.js' %}"></script>
+ <!-- AdminLTE App -->
+ <script src="{% static 'dist3/js/adminlte.js' %}"></script>
+ <script src="{% static 'dist3/js/demo.js' %}"></script>
+ <!--End of copied js files-->
+   <!--Dialog Javasscript plugins-->
+   <script src="{% static 'plugins2/sweetalert/sweetalert.min.js' %}"></script>
+   <script src="{% static 'js2/pages/ui/dialogs.js' %}"></script>
+   <script src="{% static 'plugins2/bootstrap-notify/bootstrap-notify.js' %}"></script>
+
+   <script src="{% static 'plugins2/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+   <!-- Waves Effect Plugin Js -->
+   <script src="{% static 'plugins2/chartjs/Chart.bundle.js' %}"></script>
+
+   <!--Matrix Admin Js Code-->
+   <script src="{% static 'jsMatrixAdmin/matrix.js' %}"></script> 
+      <script src="{% static 'jsMatrixAdmin/matrix.form_common.js' %}"></script> 
+
+
+
+
+   <script src="{% static 'js1/pages/charts/chartjs.js' %}"></script>
+   {% block custom_js %} 
+  <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+
+  {% endblock custom_js %}
+</html>

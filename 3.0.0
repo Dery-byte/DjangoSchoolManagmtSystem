@@ -1,0 +1,6 @@
+Collecting protobuf
+  Downloading https://files.pythonhosted.org/packages/1d/f4/089025cfa3ee62f89cae73f4d36daf46f339c6df61becfe4b24f3aeb3c0d/protobuf-3.14.0-cp37-cp37m-win_amd64.whl (798kB)
+Collecting six>=1.9 (from protobuf)
+  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Installing collected packages: six, protobuf
+Successfully installed protobuf-3.14.0 six-1.15.0

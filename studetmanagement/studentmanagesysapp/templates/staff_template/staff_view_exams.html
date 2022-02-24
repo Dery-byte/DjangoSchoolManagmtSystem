@@ -1,0 +1,61 @@
+{% extends 'staff_template/base_template.html' %} {% block page_title %} View Exams 
+{% endblock page_title %} 
+{% block main_content %}
+
+
+
+<div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>Static table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Subject Name</th>
+                  <th>Total Questions</th>
+                  <th>Total Marks</th>
+                  <th>Modify</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd gradeX">
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0</td>
+                  <td>Win 95+</td>
+                  <td>Win 95+</td>
+                  
+                </tr>
+                <tr class="even gradeC">
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0</td>
+                  <td>Win 95+</td>
+                  <td>Win 95+</td>
+                  
+                </tr>
+                <tr class="odd gradeA">
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5</td>
+                  <td>Win 95+</td>
+                  <td>Win 95+</td>
+                  
+                </tr>
+                <tr class="even gradeA">
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 6</td>
+                  <td>Win 98+</td>
+                  <td>Win 95+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endblock main_content %}

@@ -1,0 +1,57 @@
+{% extends 'hod_template2/base_template.html' %} {% block page_title %} Add Question {% endblock page_title %}
+{% load widget_tweaks %}
+ {% block main_content %}
+<!-- Main content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-dark">
+          <div class="card-header">
+            <h3 class="card-title" style="font-size:20px;">Add Question</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="question">Subject</label>
+      {% render_field questionForm.subjectID|attr:'required:true' class="form-control"  %}
+        <br>
+
+      <label for="question">Question</label>
+      {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="What is the currency of Canada ?" %}
+        <br>
+      <label for="question_number">Marks</label>
+      {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
+        <br>
+      <label for="option1">Option 1</label>
+      {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="Rupees" %}
+        <br>
+      <label for="option2">Option 2</label>
+      {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="Canadian Dollar" %}
+        <br>
+      <label for="option3">Option 3</label>
+      {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Pound" %}
+        <br>
+      <label for="option4">Option 4</label>
+      {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Euro" %}
+        <br>
+      <label for="answer">Answer</label>
+      {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">ADD</button>
+  </form>
+<br><br><br>
+        </div>
+        <!-- /.card -->
+
+
+
+      </div>
+    </div>
+  </div>
+<!-- /.content -->
+{% endblock main_content %} 

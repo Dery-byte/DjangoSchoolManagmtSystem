@@ -1,0 +1,169 @@
+{% extends 'hod_template/base_template.html' %} {% block page_title %} Add Subject {% endblock page_title %}
+{% block main_content %}
+
+
+<div class="card">
+  <div class="row clearfix">
+    <div class="header">
+      <h2>
+        Add Subject
+
+      </h2>
+    </div>
+    <div class="body">
+
+      {% if messages %} {% for message in messages %} {% if message.tags == 'error' %}
+
+
+      <!--Notice test sample code for the dialog box-->
+      <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+      <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="false" data-has-cancel-button="true"
+        data-has-confirm-button="false" data-allow-outside-click="false" data-has-done-function="" data-animation="pop"
+        data-timer="null" style="display: block; margin-top: -148px; ">
+        <div class="sa-icon sa-error" style="display: none;">
+          <span class="sa-x-mark">
+
+          </span>
+        </div>
+        <div class="sa-icon sa-warning" style="display: block;">
+          <span class="sa-body"></span>
+          <span class="sa-dot"></span>
+        </div>
+        <div class="sa-icon sa-info" style="display: none;"></div>
+        <div class="sa-icon sa-success animate" style="display: none;">
+          <span class="sa-line sa-tip animateSuccessTip"></span>
+          <span class="sa-line sa-long animateSuccessLong"></span>
+
+
+        </div>
+        <div class="sa-icon sa-custom" style="display: none;"></div>
+        <h2
+          style="display: block; text-decoration: underline red; color:red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+          {{ message }}!
+        </h2>
+        <div class="sa-button-container">
+          <div class="sa-confirm-button-container">
+            <button class="confirm okayValue" tabindex="1" style="display: block; opacity: 1; ">OK</button>
+          </div>
+        </div>
+      </div> {% endif %}
+
+
+
+      {% if message.tags == 'success' %}
+      <div class="sweet-overlay opass" tabindex="-1" style="opacity: 1; display: block;"></div>
+      <div class="sweet-alert showSweetAlert hiddenM" data-custom-class="" data-has-cancel-button="false"
+        data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false"
+        data-animation="pop" data-timer="null" style="display: block; margin-top: -148px;">
+        <div class="sa-icon sa-error" style="display: none;">
+          <span class="sa-x-mark">
+            <span class="sa-line sa-left"></span>
+            <span class="sa-line sa-right"></span>
+          </span>
+        </div>
+        <div class="sa-icon sa-warning" style="display: none;">
+          <span class="sa-body"></span>
+          <span class="sa-dot"></span>
+        </div>
+        <div class="sa-icon sa-info" style="display: none;"></div>
+        <div class="sa-icon sa-success animate" style="display: block;">
+          <span class="sa-line sa-tip animateSuccessTip"></span>
+          <span class="sa-line sa-long animateSuccessLong"></span>
+
+          <div class="sa-placeholder"></div>
+          <div class="sa-fix"></div>
+        </div>
+        <div class="sa-icon sa-custom" style="display: none;"></div>
+
+        <h2 style="display: block; text-decoration: underline; color:green;">
+          {{ message }}!
+        </h2>
+
+        <div class="sa-confirm-button-container">
+          <button class="confirm okayValue" tabindex="1" style="display: inline-block; ">OK</button>
+
+        </div>
+      </div> {% endif %} {% endfor %} {% endif %}
+      <form role="form" action="/add_subject_save/" method="post">
+        {% csrf_token %}
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group form-float">
+            <div class="form-line">
+              <input type="text" class="form-control" name="subject_name" required>
+              <label class="form-label">Subject Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="header">
+            <label class="form-label">Select Staff</label>
+          </div>
+          <div class="body">
+            <select class="form-control show-tick" name="staff">
+              {% for staff in staffs %}
+                  <option value="{{ staff.id }}">{{ staff.first_name }} {{ staff.last_name }}</option>
+                  {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="header">
+            <label class="form-label">Select Course</label>
+          </div>
+          <div class="body">
+            <select class="form-control show-tick" name="course">
+              {% for course in courses %}
+              <option value="{{ course.id }}">{{ course.course_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary m-t-15 waves-effect btn-block">Add Subject</button>
+      </form>
+    </div>
+
+
+
+
+
+    <!--Another testing part
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card">
+    <div class="header">
+      <h2>
+        SELECT
+      </h2>
+
+    </div>
+    <div class="body">
+      <select class="form-control show-tick">
+        <option value="">-- Please select --</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select>
+
+    </div>
+  </div>
+</div>-->
+    {% block custom_js %}
+    <script>
+      var opass = document.querySelector(".opass");
+      var hiddenM = document.querySelector(".hiddenM")
+      var okayValue = document.querySelector(".okayValue");
+      okayValue.addEventListener('click', function () {
+        hiddenM.style.display = "none";
+        opass.style.display = "none";
+
+      });
+    </script>
+    {% endblock custom_js %}
+
+
+    {% endblock main_content %}
